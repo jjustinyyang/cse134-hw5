@@ -1,0 +1,96 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Justin Yang's personal website">
+    <meta name="keywords" content="Justin Yang, personal website, portfolio, resume, internship, recruiter, job">
+    <title>Justin's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <noscript>
+        Dark mode not supported, JavaScript is disabled!
+        <style>
+            #toggle {
+            display: none;
+            }
+        </style>
+    </noscript>
+    <header id="site-header">
+        <nav id="main-nav" class="navigation">
+            <a href="index.html" class="nav-link">About Me</a>
+            <a href="education.html" class="nav-link">Education</a>
+            <a href="experience.html" class="nav-link">Experience</a>
+            <a href="honors.html" class="nav-link">Honors/Awards</a>
+            <a href="hobbies.html" class="nav-link">Hobbies/Interests</a>
+            <button id="toggle">🌙</button>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <main id="main-content">
+        <section id="profile" class="profile-section">
+            <div id="profile-container">
+                <div>
+                    <h2>About Me</h2>
+                    <code>Hello, World!</code>
+                    <pre>I'm Justin!</pre>
+                    <p>
+                        I’m a junior at UC San Diego studying computer science, originally from San Diego, CA. I’ve
+                        always
+                        been passionate about software development, especially backend systems, AI applications, and
+                        embedded systems. I love the challenge of building scalable and efficient solutions. I’m
+                        currently
+                        seeking internships for summer 2025 to further develop my skills and gain hands-on experience in
+                        the
+                        tech industry.
+                    </p>
+                    <p>
+                        On my free time, I enjoy hiking and traveling—whether it's exploring national parks or
+                        discovering
+                        new cities. I’m also a big basketball fan, both playing and watching games whenever I get the
+                        chance.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="photo-grid">
+            <img src="media/self_pic1.jpg" alt="Justin's Photo 1" class="gallery-image">
+            <img src="media/self_pic2.jpg" alt="Justin's Photo 2" class="gallery-image">
+            <img src="media/self_pic3.jpg" alt="Justin's Photo 3" class="gallery-image">
+        </section>
+    </main>
+    <footer id="site-footer">
+        <table id="contact-info" class="contact-table">
+            <caption>Contact info:</caption>
+            <colgroup>
+                <col span="6">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><img src="media/gmail.png" alt="Email Icon" height="15"></th>
+                    <td>Email</td>
+                    <th><img src="media/linkedin.png" alt="LinkedIn Icon" height="15"></th>
+                    <td>LinkedIn</td>
+                    <th><img src="media/github.svg" alt="GitHub Icon" height="15"></th>
+                    <td>GitHub</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="contact-form.html" id="contact-form-link">Contact Form</a>
+        <address id="location-info">
+            <p>San Diego, CA</p>
+        </address>
+        <a href="docs/justin_yang_resume.pdf" target="_blank" id="resume-link">Resume</a>
+    </footer>
+    <script src="toggle-mode.js"></script>
+</body>
+
+</html>

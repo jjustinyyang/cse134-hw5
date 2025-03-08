@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Justin Yang's personal website">
+    <meta name="keywords" content="Justin Yang, personal website, portfolio, resume, internship, recruiter, job">
+    <title>Hobbies/Interests</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="hobbies-page">
+    <noscript>
+        Dark mode not supported, JavaScript is disabled!
+        <style>
+            #toggle {
+            display: none;
+            }
+        </style>
+    </noscript>
+    <header id="site-header">
+        <nav id="main-nav" class="navigation">
+            <a href="index.html" class="nav-link">About Me</a>
+            <a href="education.html" class="nav-link">Education</a>
+            <a href="experience.html" class="nav-link">Experience</a>
+            <a href="honors.html" class="nav-link">Honors/Awards</a>
+            <a href="hobbies.html" class="nav-link active">Hobbies/Interests</a>
+            <button id="toggle">🌙</button>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <main id="hobbies-content">
+        <h1 class="hobbies-title">Hobbies & Interests</h1>
+
+        <section class="hobby-entry" id="hobby-hiking">
+            <h2 class="hobby-title">Hiking</h2>
+            <img src="media/hike.jpg" alt="Hiking photo" class="hobby-image">
+            <video controls class="hobby-video">
+                <source src="media/hike.mp4" type="video/mp4">
+            </video>
+            <div class="hobby-text">
+                <p>Hiking gives me a chance to disconnect from daily life and immerse myself in nature...</p>
+                <h3 class="hobby-subheading">You know a spot?</h3>
+                <form class="hobby-form">
+                    <label for="favorite-trail">What is your favorite trail?</label>
+                    <input type="text" id="favorite-trail" name="favorite-trail" class="hobby-input" required>
+                    <br><br>
+                    <input type="submit" value="Submit" class="hobby-button">
+                </form>
+            </div>
+        </section>
+
+        <section class="hobby-entry" id="hobby-travel">
+            <h2 class="hobby-title">Traveling</h2>
+            <img src="media/travel1.jpg" alt="Travel photo" class="hobby-image">
+            <img src="media/travel2.jpg" alt="Travel photo" class="hobby-image">
+            <div class="hobby-text">
+                <p>I love traveling and experiencing new places, cultures, and foods...</p>
+                <h3 class="hobby-subheading">You decide my next trip!</h3>
+                <form class="hobby-form">
+                    <label for="next-destination">Where should I visit next?</label>
+                    <input type="text" id="next-destination" name="next-destination" class="hobby-input" required>
+                    <br><br>
+                    <input type="submit" value="Submit" class="hobby-button">
+                </form>
+            </div>
+        </section>
+
+        <section class="hobby-entry" id="hobby-basketball">
+            <h2 class="hobby-title">Basketball</h2>
+            <img src="media/basketball1.jpeg" alt="Basketball photo" class="hobby-image">
+            <img src="media/basketball2.jpeg" alt="Basketball photo" class="hobby-image">
+            <div class="hobby-text">
+                <p>Basketball has always been a passion of mine...</p>
+                <h3 class="hobby-subheading">Let's talk basketball!</h3>
+                <form class="hobby-form">
+                    <label for="favorite-nba">What is your favorite NBA team/player?</label>
+                    <input type="text" id="favorite-nba" name="favorite-nba" class="hobby-input" required>
+                    <br><br>
+                    <input type="submit" value="Submit" class="hobby-button">
+                </form>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="hobby-feedback">
+            <h2 class="hobby-message">Leave Something!</h2>
+            <form class="hobby-form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" class="hobby-input">
+                <fieldset class="hobby-gender">
+                    <legend>Gender:</legend>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </fieldset>
+                <p>What are your hobbies?</p>
+                <select id="hobbies" name="hobbies" class="hobby-select">
+                    <optgroup label="Outdoor">
+                        <option value="hiking">Hiking</option>
+                        <option value="biking">Biking</option>
+                        <option value="beach">Beach</option>
+                        <option value="camping">Camping</option>
+                        <option value="other">Other</option>
+                    </optgroup>
+                    <optgroup label="Indoor">
+                        <option value="coding">Coding</option>
+                        <option value="movies">Movies</option>
+                        <option value="painting">Painting</option>
+                        <option value="reading">Reading</option>
+                        <option value="other">Other</option>
+                    </optgroup>
+                </select>
+                <textarea id="message" name="message" class="hobby-textarea" rows="4"
+                    cols="50">Tell me more...</textarea>
+                <details>
+                    <summary>More info</summary>
+                    <p>Your response is anonymous. Connect with me using the contact info below!</p>
+                </details>
+                <button type="button" class="hobby-button">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <table id="contact-info" class="contact-table">
+            <caption>Contact info:</caption>
+            <tbody>
+                <tr>
+                    <th><img src="media/gmail.png" alt="Email Icon" height="15"></th>
+                    <td>Email</td>
+                    <th><img src="media/linkedin.png" alt="LinkedIn Icon" height="15"></th>
+                    <td>LinkedIn</td>
+                    <th><img src="media/github.svg" alt="GitHub Icon" height="15"></th>
+                    <td>GitHub</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="contact-form.html" id="contact-form-link">Contact Form</a>
+        <address id="location-info">
+            <p>San Diego, CA</p>
+        </address>
+        <a href="docs/justin_yang_resume.pdf" target="_blank" id="resume-link">Resume</a>
+    </footer>
+    <script src="toggle-mode.js"></script>
+</body>
+
+</html>

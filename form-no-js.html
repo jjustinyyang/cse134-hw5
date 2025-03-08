@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<body>
+    <form class="contact-form" action="https://httpbin.org/post" method="post">
+        <label for="name">Name <span class="required-indicator">*</span></label>
+        <input type="text" id="name" name="name" required minlength="2">
+        <output class="error-message" role="alert"></output>
+        <output class="info-message"></output>
+
+        <label for="email">Email <span class="required-indicator">*</span></label>
+        <input type="email" id="email" name="email" required minlength="2">
+        <output class="error-message" role="alert"></output>
+        <output class="info-message"></output>
+
+        <label for="message">Message <span class="required-indicator">*</span></label>
+        <input type="text" id="message" name="message" required maxlength="200" pattern="^[a-zA-Z0-9!., ]+$"></input>
+        <output class="error-message" role="alert"></output>
+        <output class="info-message"></output>
+
+        <input type="hidden" name="possible_bot" value="true">
+
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>

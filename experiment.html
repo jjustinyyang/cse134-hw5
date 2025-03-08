@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        my-custom {
+            border: 5px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <search>
+        <label for="search">Search:</label>
+        <input type="search" id="search" name="search">
+        <button type="submit">Go</button>
+    </search>
+    <noscript>
+        Dark mode not supported, JavaScript is disabled!
+        <style>
+            #toggle {
+            display: none;
+            }
+        </style>
+    </noscript>
+    <header>
+        <nav>
+            <a href="index.html">About Me</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html">Experience</a>
+            <a href="honors.html">Honors/Awards</a>
+            <a href="hobbies.html">Hobbies/Interests</a>
+            <a href="experiment.html">Experiment Page</a>
+            <button id="toggle">🌙</button>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <h1>Experiment Page</h1>
+        <section>
+            <h2>Additional HTML Elements</h2>
+            <ol>
+                <li>
+                    <p>div/span</p>
+                    <div>
+                        <span>This is a span inside a div.</span>
+                        <span>This is another span inside a div.</span>
+                    </div>
+                </li>
+                <li>
+                    <p>picture</p>
+                    <picture>
+                        <source srcset="media/experiment1.webp" type="image/jpeg">
+                        <img src="media/experiment1.webp" alt="experiment1 Image" width="200">
+                    </picture>
+                </li>
+                <li>
+                    <p>iframe</p>
+                    <iframe src="https://justiny-cse134hw1.netlify.app" title="Example Iframe" width="200"></iframe>
+                </li>
+                <li>
+                    <p>canvas</p>
+                    <canvas id="myCanvas" width="200" height="200"></canvas>
+                </li>
+                <li>
+                    <p>svg</p>
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="blue" />
+                    </svg>
+                </li>
+                <li>
+                    <p>template</p>
+                    <template id="my-template">
+                        <p>This is a template content.</p>
+                    </template>
+                </li>
+                <li>
+                    <p>figure/figcaption</p>
+                    <figure>
+                        <img src="media/figure.png" alt="Placeholder Image" width="200">
+                        <figcaption>HTML vs CSS vs JS</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <p>blockquote</p>
+                    <blockquote cite="https://www.example.com">
+                        <p>This is a blockquote.</p>
+                    </blockquote>
+                </li>
+                <li>
+                    <p>cite</p>
+                    <cite>This is a citation.</cite>
+                </li>
+                <li>
+                    <p>ins</p>
+                    <ins>This text is inserted.</ins>
+                </li>
+                <li>
+                    <p>del</p>
+                    <del>This text is deleted.</del>
+                </li>
+                <li>
+                    <p>search (top of page)</p>
+                </li>
+                <li>
+                    <p>dialog</p>
+                    <button id="openDialog">Open Dialog</button>
+                    <dialog id="myDialog">
+                        <p>This is a dialog box.</p>
+                        <button id="closeDialog">Close</button>
+                    </dialog>
+                </li>
+                <li>
+                    <p>hgroup</p>
+                    <hgroup>
+                        <h2>Main Heading</h2>
+                    </hgroup>
+                </li>
+                <li>
+                    <p>dl/dt/dd</p>
+                    <dl>
+                        <dt>HTML</dt>
+                        <dd>Structure</dd>
+                        <dt>CSS</dt>
+                        <dd>Presentation</dd>
+                        <dt>JS</dt>
+                        <dd>Behavior</dd>
+                    </dl>
+                </li>
+                <li>
+                    <p>abbr</p>
+                    <abbr title="Hypertext Markup Language">HTML</abbr>
+                </li>
+                <li>
+                    <p>dfn</p>
+                    <p><dfn>CSE 134B</dfn> is a web client languages course.</p>
+                </li>
+                <li>
+                    <p>kbd</p>
+                    <p>Use the keys <kbd>Ctrl + C</kbd> to copy.</p>
+                </li>
+                <li>
+                    <p>noscript</p>
+                    <noscript>JavaScript is not supported!</noscript>
+                </li>
+                <li>
+                    <p>semantic CSS custom element</p>
+                    <my-custom>my custom semantic css element</my-custom>
+                </li>
+                <li>
+                    <p>hello world custom element</p>
+                    <hello-world></hello-world>
+                    <script>
+                        customElements.define('hello-world', class extends HTMLElement {
+                            connectedCallback() {
+                                console.log('Hello world!');
+                            }
+                        });
+                    </script>
+                </li>
+                <li>
+                    <p>MathML</p>
+                    <math>
+                        <mi>E</mi>
+                        <mo>=</mo>
+                        <mi>m</mi>
+                        <msup>
+                            <mi>c</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </math>
+                </li>
+            </ol>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <table>
+            <caption>
+                Contact info:
+            </caption>
+            <colgroup>
+                <col span="6">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><img src="media/gmail.png" alt="Photo" height="15"></th>
+                    <td>Email</td>
+                    <th><img src="media/linkedin.png" alt="Photo" height="15"></th>
+                    <td>LinkedIn</td>
+                    <th><img src="media/github.svg" alt="Photo" height="15"></th>
+                    <td>GitHub</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="contact-form.html" id="contact-form-link">Contact Form</a>
+        <address>
+            <p>San Dieog, CA</p>
+        </address>
+        <a href="docs/justin_yang_resume.pdf" target="_blank">Resume</a>
+    </footer>
+    <script src="toggle-mode.js"></script>
+</body>
+
+</html>

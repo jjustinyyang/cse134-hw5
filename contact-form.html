@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form id="contact-form" action="https://httpbin.org/post" method="post">
+        <label for="name">Name <span class="required-indicator">*</span></label>
+        <input type="text" id="name" name="name" required minlength="2">
+        <output class="error-message" role="alert"></output>
+        <output class="info-message"></output>
+
+        <label for="email">Email <span class="required-indicator">*</span></label>
+        <input type="email" id="email" name="email" required minlength="2">
+        <output class="error-message" role="alert"></output>
+        <output class="info-message"></output>
+
+        <label for="message">Message <span class="required-indicator">*</span></label>
+        <input type="text" id="message" name="message" required maxlength="200" pattern="^[a-zA-Z0-9!., ]+$"></input>
+        <small id="char-count">0 / 200</small>
+        <output id="error-message" role="alert"></output>
+        <output id="info-message"></output>
+
+        <input type="hidden" name="possible_bot" value="true">
+        <input type="hidden" name="form_errors" id="form_errors">
+
+        <br>
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+
+        <script src="contact-form.js"></script>
+    </form>
+</body>
+
+</html>
