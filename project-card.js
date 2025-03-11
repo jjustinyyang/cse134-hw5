@@ -133,7 +133,7 @@ function loadLocal() {
 
 function loadRemote() {
     const projectsContainer = document.getElementById('projects-container');
-    fetch('https://api.example.com/projects')
+    fetch('https://my-json-server.typicode.com/jjustinyyang/cse134-hw5db/projects')
         .then(response => response.json())
         .then(projects => {
             if (projects && projects.length > 0) {
@@ -141,9 +141,9 @@ function loadRemote() {
                 projects.forEach(project => {
                     const projectCard = document.createElement('project-card');
                     projectCard.classList.add('project');
-                    projectCard.setAttribute('project', project.title);
-                    projectCard.setAttribute('img-src', project.image);
-                    projectCard.setAttribute('img-alt', project.alt);
+                    projectCard.setAttribute('project', project.project);
+                    projectCard.setAttribute('img-src', project.imgSrc);
+                    projectCard.setAttribute('img-alt', project.imgAlt);
                     projectCard.setAttribute('description', project.description);
                     projectCard.setAttribute('link', project.link);
 
