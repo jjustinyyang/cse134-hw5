@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations with LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            margin: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRUD Operations with LocalStorage</h1>
+    <form id="crud-form">
+        <input type="text" id="project" placeholder="Project Name" required>
+        <input type="text" id="img-src" placeholder="Image Source" required>
+        <input type="text" id="img-alt" placeholder="Image Alt Text" required>
+        <input type="text" id="description" placeholder="Description" required>
+        <input type="url" id="link" placeholder="Link" required>
+        <button type="button" onclick="createProject()">Create</button>
+        <button type="button" onclick="updateProject()">Update</button>
+        <button type="button" onclick="deleteProject()">Delete</button>
+    </form>
+
+    <h2>Projects</h2>
+    <button onclick="readProjects()">Read Projects</button>
+    <table id="projects-table">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Image Source</th>
+                <th>Image Alt Text</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Projects will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        function createProject() {
+            const project = document.getElementById('project').value;
+            const imgSrc = document.getElementById('img-src').value;
+            const imgAlt = document.getElementById('img-alt').value;
+            const description = document.getElementById('description').value;
+            const link = document.getElementById('link').value;
+
+            let projects = JSON.parse(localStorage.getItem('projects')) || [];
+            projects.push({ project, imgSrc, imgAlt, description, link });
+            localStorage.setItem('projects', JSON.stringify(projects));
+
+            readProjects();
+        }
+
+        function readProjects() {
+            const projects = JSON.parse(localStorage.getItem('projects')) || [];
+            const projectsTableBody = document.getElementById('projects-table').querySelector('tbody');
+            projectsTableBody.innerHTML = '';
+
+            projects.forEach((project, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${project.project}</td>
+                    <td>${project.imgSrc}</td>
+                    <td>${project.imgAlt}</td>
+                    <td>${project.description}</td>
+                    <td><a href="${project.link}" target="_blank">${project.link}</a></td>
+                `;
+                row.addEventListener('click', () => {
+                    document.getElementById('project').value = project.project;
+                    document.getElementById('img-src').value = project.imgSrc;
+                    document.getElementById('img-alt').value = project.imgAlt;
+                    document.getElementById('description').value = project.description;
+                    document.getElementById('link').value = project.link;
+                    document.getElementById('crud-form').dataset.index = index;
+                });
+                projectsTableBody.appendChild(row);
+            });
+        }
+
+        function updateProject() {
+            const index = document.getElementById('crud-form').dataset.index;
+            if (index === undefined) return;
+
+            const project = document.getElementById('project').value;
+            const imgSrc = document.getElementById('img-src').value;
+            const imgAlt = document.getElementById('img-alt').value;
+            const description = document.getElementById('description').value;
+            const link = document.getElementById('link').value;
+
+            let projects = JSON.parse(localStorage.getItem('projects')) || [];
+            projects[index] = { project, imgSrc, imgAlt, description, link };
+            localStorage.setItem('projects', JSON.stringify(projects));
+
+            readProjects();
+        }
+
+        function deleteProject() {
+            const index = document.getElementById('crud-form').dataset.index;
+            if (index === undefined) return;
+
+            let projects = JSON.parse(localStorage.getItem('projects')) || [];
+            projects.splice(index, 1);
+            localStorage.setItem('projects', JSON.stringify(projects));
+
+            readProjects();
+        }
+
+        document.addEventListener('DOMContentLoaded', readProjects);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Justin Yang's personal website">
+    <meta name="keywords" content="Justin Yang, personal website, portfolio, resume, internship, recruiter, job">
+    <title>Technical Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="project-card.js" defer></script>
+    <style>
+        :root {
+            --card-width: 28rem;
+            --card-bg: #f9f9f9;
+            --card-border-radius: 10px;
+            --card-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+            --card-padding: 20px;
+            --card-title-size: 1.5em;
+            --card-title-color: #333;
+            --card-text-size: 1.1em;
+            --card-text-color: #555;
+            --card-link-color: #007bff;
+        }
+
+        body main {
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        #projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        Dark mode not supported, JavaScript is disabled!
+        <style>
+            #toggle {
+                display: none;
+            }
+        </style>
+    </noscript>
+    <header id="site-header">
+        <nav id="main-nav" class="navigation">
+            <a href="index.html" class="nav-link">About Me</a>
+            <a href="education.html" class="nav-link">Education</a>
+            <a href="experience-cards.html" class="nav-link">Experience</a>
+            <a href="honors.html" class="nav-link">Honors/Awards</a>
+            <a href="hobbies.html" class="nav-link">Hobbies/Interests</a>
+            <button id="toggle">🌙</button>
+        </nav>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <main id="main-content">
+        <h1 id="experience-title">Technical Experience</h1>
+        <div id="projects-container">
+            <!-- <project-card class="project" project="LeadYouth" img-src="media/leadyouth.png" img-alt="LeadYouth company logo"
+                description="At LeadYouth, I will be developing an AI-driven mobile app aimed at enhancing leadership training for youth. This project involves integrating AI models to support features such as personality development, leadership simulations, and speech training. Over four months, I will design, develop, and test the app, ensuring it aligns with LeadYouth’s mission."
+                link="https://www.leadyouth.org/"></project-card>
+            <project-card class="project" project="Tag-N-Trac" img-src="media/tagntrac.png" img-alt="Tag-N-Trac company logo"
+                description="At Tag-N-Trac, I developed an AI assistant using OpenAI's Assistant API to enable natural language queries on the company dashboard. This improved user experience by making data retrieval and analysis more intuitive. I also integrated backend systems with API endpoints to track asset lifecycles, retrieve sensor data, manage alerts, and generate reports, streamlining logistics and monitoring processes."
+                link="https://tagntrac.ai/"></project-card>
+            <project-card class="project" project="Hermes Epitek" img-src="media/hermes.png" img-alt="Hermes Epitek company logo"
+                description="I built a dynamic web application that visualized historical factory alarm data using JavaScript, Chart.js, and MySQL, enabling users to analyze trends through interactive graphs. By implementing API integration, I optimized data filtering and extraction, improving the accuracy and accessibility of operational insights for manufacturing decision-making."
+                link="https://www.hermes.com.tw/en/"></project-card>
+            <project-card class="project" project="ERSP Software Researcher" img-src="media/ersp.jpeg"
+                img-alt="ERSP program research project logo"
+                description="I worked on Proofessor, an AI tutor leveraging GPT-4 to assist students in writing mathematical proofs. Using Python, prompt engineering, and OpenAI’s API, I designed interactive tutoring sessions that provided structured feedback. Additionally, I integrated Lean 4 for auto-formalization, enhancing proof validation and student learning outcomes."
+                link="https://ersp.ucsd.edu/"></project-card>
+            <project-card class="project" project="Computer Science Tutor" img-src="media/tutor.png"
+                img-alt="UCSD Computer Science tutoring icon"
+                description="I led lab sessions for 80 students in CSE 15L (Software Tools & Techniques Lab), teaching Linux OS, Vim, shell scripting, JUnit testing, and Git version control. I provided hands-on guidance, helping students build foundational software development skills."
+                link="https://cse.ucsd.edu/"></project-card> -->
+        </div>
+        <br>
+        <div>
+            <button id="load-local-btn">Load Local</button>
+            <button id="load-remote-btn">Load Remote</button>
+        </div>
+    </main>
+    <footer id="site-footer">
+        <table id="contact-info" class="contact-table">
+            <caption>Contact info:</caption>
+            <colgroup>
+                <col span="6">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><img src="media/gmail.png" alt="Email Icon" height="15"></th>
+                    <td>Email</td>
+                    <th><img src="media/linkedin.png" alt="LinkedIn Icon" height="15"></th>
+                    <td>LinkedIn</td>
+                    <th><img src="media/github.svg" alt="GitHub Icon" height="15"></th>
+                    <td>GitHub</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="contact-form.html" id="contact-form-link">Contact Form</a>
+        <address id="location-info">
+            <p>San Diego, CA</p>
+        </address>
+        <a href="docs/justin_yang_resume.pdf" target="_blank" id="resume-link">Resume</a>
+    </footer>
+    <script src="toggle-mode.js"></script>
+</body>
+
+</html>

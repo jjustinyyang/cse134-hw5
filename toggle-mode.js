@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Check and apply saved theme
     const saved_theme = localStorage.getItem("theme");
-    console.log(saved_theme);
     if (saved_theme === 'd') {
         body.classList.add("darkMode");
         if (index_profile_container) {
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (saved_theme === 'l') {
-        console.log("No saved theme");
         body.classList.remove("darkMode");
         if (index_profile_container) {
 
