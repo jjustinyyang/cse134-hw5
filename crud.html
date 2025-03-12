@@ -88,6 +88,12 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .info-message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -108,6 +114,7 @@
             <!-- Projects will be dynamically inserted here -->
         </tbody>
     </table>
+    <div class="info-message">Note: After editing a cell, click the "Update" button to save changes.</div>
     <br>
     <form id="crud-form">
         <input type="text" id="project" placeholder="Project Name" required>
@@ -116,7 +123,6 @@
         <input type="text" id="description" placeholder="Description" required>
         <input type="url" id="link" placeholder="Link" required>
         <button type="button" onclick="createProject()">Create</button>
-        <button type="button" onclick="updateProject()">Update</button>
     </form>
     <button onclick="readProjects()">Read Projects</button>
 
@@ -143,48 +149,26 @@
             projects.forEach((project, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${project.project}</td>
-                    <td><img src="${project.imgSrc}" alt="${project.imgAlt}" style="width: 100px; height: auto;"></td>
-                    <td>${project.description}</td>
-                    <td><a href="${project.link}" target="_blank">${project.link}</a></td>
+                    <td contenteditable="true">${project.project}</td>
+                    <td contenteditable="true"><img src="${project.imgSrc}" alt="${project.imgAlt}" style="width: 100px; height: auto;"></td>
+                    <td contenteditable="true">${project.description}</td>
+                    <td contenteditable="true"><a href="${project.link}" target="_blank">${project.link}</a></td>
                     <td>
-                        <button style="width: 4vw" onclick="editProject(${index})">Edit</button>
+                        <button style="width: 4vw" title="Click to save changes" onclick="updateProject(${index}, this)">Update</button>
                         <button style="width: 4vw" onclick="deleteProject(${index})">Delete</button>
                     </td>
                 `;
-                row.addEventListener('click', () => {
-                    document.getElementById('project').value = project.project;
-                    document.getElementById('img-src').value = project.imgSrc;
-                    document.getElementById('img-alt').value = project.imgAlt;
-                    document.getElementById('description').value = project.description;
-                    document.getElementById('link').value = project.link;
-                    document.getElementById('crud-form').dataset.index = index;
-                });
                 projectsTableBody.appendChild(row);
             });
         }
 
-        function editProject(index) {
-            const projects = JSON.parse(localStorage.getItem('projects')) || [];
-            const project = projects[index];
-
-            document.getElementById('project').value = project.project;
-            document.getElementById('img-src').value = project.imgSrc;
-            document.getElementById('img-alt').value = project.imgAlt;
-            document.getElementById('description').value = project.description;
-            document.getElementById('link').value = project.link;
-            document.getElementById('crud-form').dataset.index = index;
-        }
-
-        function updateProject() {
-            const index = document.getElementById('crud-form').dataset.index;
-            if (index === undefined) return;
-
-            const project = document.getElementById('project').value;
-            const imgSrc = document.getElementById('img-src').value;
-            const imgAlt = document.getElementById('img-alt').value;
-            const description = document.getElementById('description').value;
-            const link = document.getElementById('link').value;
+        function updateProject(index, button) {
+            const row = button.parentElement.parentElement;
+            const project = row.cells[0].innerText;
+            const imgSrc = row.cells[1].querySelector('img').src;
+            const imgAlt = row.cells[1].querySelector('img').alt;
+            const description = row.cells[2].innerText;
+            const link = row.cells[3].querySelector('a').href;
 
             let projects = JSON.parse(localStorage.getItem('projects')) || [];
             projects[index] = { project, imgSrc, imgAlt, description, link };
