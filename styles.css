@@ -38,6 +38,15 @@ body {
     margin-bottom: 20px;
 }
 
+#contact-form-button {
+    background-color: #1e90ff; /* DodgerBlue */
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-family, Arial);
+}
+
 /* =================== HEADER & NAVIGATION =================== */
 #site-header {
     background-color: var(--primary-color, #005a8d) !important;
