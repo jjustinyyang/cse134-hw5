@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* =================== DARK MODE =================== */
-.darkMode {
-    background: gray !important;
-    color: white !important;
-}
-
-.darkModeInner {
-    background: darkgray !important;
-    color: black !important;
-}
-
 /* =================== CSS VARIABLES =================== */
 :root {
     --primary-color: #005a8d;
@@ -40,6 +29,13 @@ body {
     width: 80%;
     margin: auto;
     padding: 20px 0;
+}
+
+#page-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /* =================== HEADER & NAVIGATION =================== */
@@ -91,7 +87,18 @@ body {
     margin: 4px 0;
 }
 
-/* Profile Section */
+/* =================== DARK MODE =================== */
+.darkMode {
+    background: gray !important;
+    color: white !important;
+}
+
+.darkModeInner {
+    background: darkgray !important;
+    color: black !important;
+}
+
+/* =================== PROFILE SECTION =================== */
 #profile-container {
     display: flex;
     align-items: center;
@@ -130,7 +137,7 @@ body {
     line-height: 1.6;
 }
 
-/* Gallery */
+/* =================== GALLERY =================== */
 .photo-grid {
     display: flex;
     justify-content: center;
@@ -151,13 +158,6 @@ body {
 }
 
 /* =================== EDUCATION SECTION =================== */
-#education-title {
-    text-transform: uppercase;
-    font-size: 24px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
 /* Card-like Education Section (Similar to Experience) */
 .education-entry {
     background: #fff;
@@ -221,13 +221,6 @@ body {
 }
 
 /* =================== EXPERIENCE SECTION =================== */
-#experience-title {
-    text-transform: uppercase;
-    font-size: 24px;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
 /* Experience Section */
 .experience-entry {
     background: #fff;
@@ -296,34 +289,7 @@ body {
     background: #ddd;
 }
 
-/* =================== EXPERIENCE SECTION (NEW) =================== */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-    padding: 16px;
-}
-
 /* =================== HONORS SECTION =================== */
-/* General Page Layout */
-#honors-content {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.page-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #222;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* Honor Entry Styles */
 .honor-entry {
     margin-bottom: 30px;
@@ -331,6 +297,7 @@ body {
     border-radius: 10px;
     background: #f0f0f0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .honor-title {
@@ -371,103 +338,14 @@ body {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    #main-content {
-        width: 90%;
-    }
-
-    .navigation {
-        display: none;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .profile-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .experience-content {
-        flex-direction: column;
-    }
-
-    .company-logo {
-        width: 100%;
-        max-width: none;
-    }
-
-    .experience-text {
-        width: 100%;
-    }
-
-    main img, video {
-        width: 30% !important;
-        height: 30% !important;
-    }
-
-    #site-header {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 1024px) {
-    #main-content {
-        width: 90%;
-    }
-
-    .profile-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .experience-content {
-        flex-direction: column;
-    }
-
-    .company-logo {
-        width: 100%;
-        max-width: none;
-    }
-
-    .experience-text {
-        width: 100%;
-    }
-
-    main img, video {
-        width: 30% !important;
-        height: 30% !important;
-    }
-
-    #site-header {
-        padding: 30px;
-    }
-}
-
 /* =================== HOBBIES SECTION =================== */
-/* Hobbies Page Specific Styles */
-#hobbies-content {
-    width: 80%;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.hobbies-title {
-    font-size: 36px;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-}
-
 .hobby-entry {
     margin-bottom: 50px;
     padding: 20px;
     background: #f8f8f8;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .hobby-title {
@@ -593,7 +471,6 @@ body {
 }
 
 /* =================== FOOTER =================== */
-
 #site-footer {
     text-align: center;
     padding: 20px;
@@ -624,4 +501,79 @@ body {
 #resume-link:hover {
     background: #fff;
     color: #222;
+}
+
+/* =================== RESPONSIVE DESIGN =================== */
+@media (max-width: 600px) {
+    #main-content {
+        width: 90%;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .experience-content {
+        flex-direction: column;
+    }
+
+    .company-logo {
+        width: 100%;
+        max-width: none;
+    }
+
+    .experience-text {
+        width: 100%;
+    }
+
+    main img, video {
+        width: 30% !important;
+        height: 30% !important;
+    }
+
+    #site-header {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #main-content {
+        width: 90%;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .experience-content {
+        flex-direction: column;
+    }
+
+    .company-logo {
+        width: 100%;
+        max-width: none;
+    }
+
+    .experience-text {
+        width: 100%;
+    }
+
+    main img, video {
+        width: 30% !important;
+        height: 30% !important;
+    }
+
+    #site-header {
+        padding: 30px;
+    }
 }

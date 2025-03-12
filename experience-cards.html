@@ -23,27 +23,16 @@
             --card-link-color: #007bff;
         }
 
-        body main {
-            font-family: 'Helvetica Neue', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
-        }
-
-        h1 {
-            width: 100%;
-            text-align: center;
-            color: #222;
-            margin-bottom: 20px;
-        }
-
         #projects-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             max-width: 1000px;
             margin: auto;
+        }
+
+        #load-btns-container {
+            text-align: center;
         }
     </style>
 </head>
@@ -73,7 +62,7 @@
         </div>
     </header>
     <main id="main-content">
-        <h1 id="experience-title">Technical Experience</h1>
+        <h1 id="page-title">Technical Experience</h1>
         <div id="projects-container">
             <!-- <project-card class="project" project="LeadYouth" img-src="media/leadyouth.png" img-alt="LeadYouth company logo"
                 description="At LeadYouth, I will be developing an AI-driven mobile app aimed at enhancing leadership training for youth. This project involves integrating AI models to support features such as personality development, leadership simulations, and speech training. Over four months, I will design, develop, and test the app, ensuring it aligns with LeadYouth’s mission."
@@ -94,7 +83,7 @@
                 link="https://cse.ucsd.edu/"></project-card> -->
         </div>
         <br>
-        <div>
+        <div id="load-btns-container">
             <button id="load-local-btn">Load Local</button>
             <button id="load-remote-btn">Load Remote</button>
         </div>
