@@ -9,34 +9,106 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
         }
 
         form {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         input, button {
-            margin: 5px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
         }
 
         th, td {
-            padding: 10px;
+            padding: 12px;
             text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            color: #0000EE;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <h1>CRUD Operations with LocalStorage</h1>
+    <h2>Projects</h2>
+    <table id="projects-table">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Projects will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <br>
     <form id="crud-form">
         <input type="text" id="project" placeholder="Project Name" required>
         <input type="text" id="img-src" placeholder="Image Source" required>
@@ -45,25 +117,8 @@
         <input type="url" id="link" placeholder="Link" required>
         <button type="button" onclick="createProject()">Create</button>
         <button type="button" onclick="updateProject()">Update</button>
-        <button type="button" onclick="deleteProject()">Delete</button>
     </form>
-
-    <h2>Projects</h2>
     <button onclick="readProjects()">Read Projects</button>
-    <table id="projects-table">
-        <thead>
-            <tr>
-                <th>Project</th>
-                <th>Image Source</th>
-                <th>Image Alt Text</th>
-                <th>Description</th>
-                <th>Link</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Projects will be dynamically inserted here -->
-        </tbody>
-    </table>
 
     <script>
         function createProject() {
@@ -89,10 +144,13 @@
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${project.project}</td>
-                    <td>${project.imgSrc}</td>
-                    <td>${project.imgAlt}</td>
+                    <td><img src="${project.imgSrc}" alt="${project.imgAlt}" style="width: 100px; height: auto;"></td>
                     <td>${project.description}</td>
                     <td><a href="${project.link}" target="_blank">${project.link}</a></td>
+                    <td>
+                        <button style="width: 4vw" onclick="editProject(${index})">Edit</button>
+                        <button style="width: 4vw" onclick="deleteProject(${index})">Delete</button>
+                    </td>
                 `;
                 row.addEventListener('click', () => {
                     document.getElementById('project').value = project.project;
@@ -104,6 +162,18 @@
                 });
                 projectsTableBody.appendChild(row);
             });
+        }
+
+        function editProject(index) {
+            const projects = JSON.parse(localStorage.getItem('projects')) || [];
+            const project = projects[index];
+
+            document.getElementById('project').value = project.project;
+            document.getElementById('img-src').value = project.imgSrc;
+            document.getElementById('img-alt').value = project.imgAlt;
+            document.getElementById('description').value = project.description;
+            document.getElementById('link').value = project.link;
+            document.getElementById('crud-form').dataset.index = index;
         }
 
         function updateProject() {
@@ -123,18 +193,13 @@
             readProjects();
         }
 
-        function deleteProject() {
-            const index = document.getElementById('crud-form').dataset.index;
-            if (index === undefined) return;
-
+        function deleteProject(index) {
             let projects = JSON.parse(localStorage.getItem('projects')) || [];
             projects.splice(index, 1);
             localStorage.setItem('projects', JSON.stringify(projects));
 
             readProjects();
         }
-
-        document.addEventListener('DOMContentLoaded', readProjects);
     </script>
 </body>
 
