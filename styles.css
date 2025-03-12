@@ -518,10 +518,6 @@ body {
         width: 90%;
     }
 
-    .navigation {
-        display: none;
-    }
-
     .hamburger-menu {
         display: flex;
     }
@@ -551,6 +547,21 @@ body {
 
     #site-header {
         padding: 30px;
+    }
+
+    .navigation {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color, #005a8d);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navigation.show {
+        display: flex;
     }
 }
 
